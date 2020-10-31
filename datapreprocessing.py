@@ -39,6 +39,18 @@ from sklearn.preprocessing import LabelEncoder, OneHotEncoder
 labelencoder_x = LabelEncoder() 
 # specifing the index of the columns having categorical vairiables in array x 
 x[:,0] = labelencoder_x.fit_transform(x[:,0]) 
+# The above code is now deprecated
+
+# The currect method id -: 
+# Encoding categorical data
+'''
+from sklearn.compose import ColumnTransformer
+from sklearn.preprocessing import OneHotEncoder
+ct = ColumnTransformer(transformers=[('encoder', OneHotEncoder(), [3])], remainder='passthrough')
+X = np.array(ct.fit_transform(X))
+print(X)
+'''
+
 
 # now emplimenting Dummy Encoding so that ML algorithm model do not attribute an order in to the categorical vairiable so that we can have the correct computation while modeling dataset 
 # The below code is deprecated now so we need to use the ColumnTransformer "------ from sklearn.compose import ColumnTransformer -------"
